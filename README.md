@@ -72,6 +72,8 @@ Attendance
 AttendanceDate
 
 Status
+<img width="920" height="537" alt="image" src="https://github.com/user-attachments/assets/e355852c-8246-4224-a4eb-5cdea7760441" />
+
 
 ### Relationships and Constraints
 
@@ -94,6 +96,7 @@ Participation: Total on Attendance (each attendance record must reference a sess
 Relationship: Trainer makes Payment
 Cardinality: One Trainer may have multiple Payments (1:N)
 Participation: Partial on both sides (trainers may or may not have payments, payments are linked to one trainer)
+<img width="947" height="630" alt="image" src="https://github.com/user-attachments/assets/29dbc172-4a0b-4d4c-8107-d9573febf8f8" />
 
 ## Constraints:
 1.MembershipType is uniquely identified by MemberID; Session by SessionID; Trainer by TrainerID; and Payment by PaymentID.
@@ -124,33 +127,23 @@ The Central Library wants to manage book lending and cultural events.
 
 ### ER Diagram:
 *Paste or attach your diagram here*  
-![ER Diagram](er_diagram_library.png)
+<img width="989" height="758" alt="Screenshot 2025-09-03 170014" src="https://github.com/user-attachments/assets/f9be8ec7-c9aa-4897-ba8b-d0881d9696e4" />
+
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+<img width="1221" height="272" alt="image" src="https://github.com/user-attachments/assets/d6325ca6-6d30-4e82-a57a-baa5a0f249f8" />
+
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+<img width="1272" height="405" alt="image" src="https://github.com/user-attachments/assets/fe64ff90-1e6b-4a8b-9e7e-1a84f20c4105" />
+
 
 ### Assumptions
-- 
-- 
-- 
-
----
-
+A member must exist before borrowing books or registering for events.
+A book may or may not be borrowed; not all books will always have loans.
+Fines are only generated if a book is returned late.
 # Scenario C: Restaurant Table Reservation & Ordering
 
 **Business Context:**  
@@ -253,6 +246,19 @@ ReservationID (FK)
 TotalAmount
 
 PaymentStatus
+| Entity          | Attributes (PK, FK)                                                                                           | Notes                                                           |
+| --------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| **Customer**    | customer\_id (PK), name, phone\_no, email, address                                                            | Customers who reserve tables and place orders                   |
+| **Reservation** | reservation\_id (PK), reservation\_date, reservation\_time, no\_of\_guests, customer\_id (FK), table\_id (FK) | Links customers with reserved tables                            |
+| **Table**       | table\_id (PK), table\_no, capacity, status                                                                   | Represents restaurant tables and their availability             |
+| **Order**       | order\_id (PK), order\_date, order\_time, customer\_id (FK), table\_id (FK), total\_amount, status            | Represents customer orders                                      |
+| **Order\_Item** | order\_item\_id (PK), order\_id (FK), menu\_item\_id (FK), quantity, price                                    | Line items for each order                                       |
+| **Menu\_Item**  | menu\_item\_id (PK), name, description, price, category                                                       | Menu items available for ordering                               |
+| **Payment**     | payment\_id (PK), order\_id (FK), amount, payment\_date, payment\_mode, status                                | Records payments for orders                                     |
+| **Staff**       | staff\_id (PK), name, role, phone\_no                                                                         | Staff responsible for managing tables, reservations, or serving |
+| **Bill**        | bill\_id (PK), order\_id (FK), amount, tax, discount, final\_amount                                           | Represents the bill generated for each order                    |
+
+
 
 ## Relationships  ,Cardinality, Participation
 1.customers - reservations
@@ -332,6 +338,19 @@ Relationship: Generated for
 Cardinality: One bill for one reservation (1:1)
 
 Participation: Total on bill side (each bill is for one reservation), partial on reservation side (reservation may or may not have bills)
+| Relationship             | Cardinality | Participation                             | Notes                                                                           |
+| ------------------------ | ----------- | ----------------------------------------- | ------------------------------------------------------------------------------- |
+| Customer – Reservation   | 1 : M       | Total on Reservation, Partial on Customer | A customer can make many reservations; each reservation belongs to one customer |
+| Table – Reservation      | 1 : M       | Total on Reservation                      | A table can have many reservations, but each reservation is for one table       |
+| Customer – Order         | 1 : M       | Partial on Customer, Total on Order       | A customer can place multiple orders; each order belongs to one customer        |
+| Table – Order            | 1 : M       | Total on Order                            | Orders are linked to the table where the customer is seated                     |
+| Order – Order\_Item      | 1 : M       | Total on Order\_Item                      | An order can contain multiple order items                                       |
+| Menu\_Item – Order\_Item | 1 : M       | Total on Order\_Item                      | Each order item refers to one menu item                                         |
+| Order – Payment          | 1 : 1       | Total                                     | Each order must have one payment                                                |
+| Order – Bill             | 1 : 1       | Total                                     | A bill is generated for each order                                              |
+| Staff – Reservation      | 1 : M       | Optional on Reservation                   | Staff may manage multiple reservations                                          |
+| Staff – Order            | 1 : M       | Optional on Order                         | Staff may serve multiple orders                                                 |
+
 
 ### Assumptions
 1.Each customer must register before making a reservation or placing an order.
