@@ -23,7 +23,7 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 ### ER Diagram:
 *Paste or attach your diagram here*  
-![ER Diagram](er_diagram_fitness.png)
+
 <img width="1013" height="747" alt="image" src="https://github.com/user-attachments/assets/b2bd03ab-b182-4fe4-beb8-bee7e53435d4" />
 
 
@@ -166,7 +166,6 @@ A popular restaurant wants to manage reservations, orders, and billing.
 
 ### ER Diagram:
 *Paste or attach your diagram here*  
-![ER Diagram](er_diagram_restaurant.png)
 <img width="1212" height="771" alt="Screenshot 2025-09-03 133439" src="https://github.com/user-attachments/assets/67b0cd5e-9893-4bf8-afdb-f26a8bfe7817" />
 
 
@@ -349,4 +348,4 @@ Participation: Total on bill side (each bill is for one reservation), partial on
 
 7.Historical data of orders, payments, and reservations are stored for reporting and auditing.
 ## RESULT:
-mplementing a restaurant table reservation and ordering system improves efficiency by managing table availability in real-time and preventing overbooking. Customers enjoy the convenience of booking in advance, reducing wait times and enhancing their dining experience. The system helps staff optimize resource allocation and improves order accuracy. Automated reminders reduce no-shows, while integrated payment processing streamlines transactions. Overall, the system boosts customer satisfaction, operational efficiency, and restaurant revenue.
+City Fitness Club Management, City Library Event & Book Lending System, and Restaurant Table Reservation & Ordering systems all improve operational efficiency by automating booking and scheduling processes. They enhance user experience by providing real-time availability and reducing wait times. Each system supports accurate tracking of resources—whether trainers, books, or tables—and manages payments seamlessly. Automated reminders reduce no-shows, while data reporting helps optimize resource use and business decisions. Overall, these systems increase customer satisfaction, streamline operations, and boost revenue.
