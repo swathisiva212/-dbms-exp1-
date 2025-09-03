@@ -113,8 +113,7 @@ A popular restaurant wants to manage reservations, orders, and billing.
 
 ### Entities and Attributes
 <img width="915" height="561" alt="Screenshot 2025-09-03 135417" src="https://github.com/user-attachments/assets/ca6e981b-d99e-4aac-a377-f3e740378f59" />
-<img width="924" height="250" alt="Screenshot 2025-09-03 135500" src="https://github.com/user-attachments/assets/7edd689e-8f9f-4339-88b5-ce5c517ec062" />
-
+<img width="906" height="236" alt="image" src="https://github.com/user-attachments/assets/800c1193-ef73-4b5f-b6ba-f17e81a5b436" />
 
 
 ### Relationships and Constraints
